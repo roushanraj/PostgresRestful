@@ -1,4 +1,5 @@
 package com.example.demo;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -50,6 +51,14 @@ public class UnitTesing {
 		.andExpect(MockMvcResultMatchers.jsonPath("$[0].name", Matchers.equalTo("DummyName")))
 		.andExpect(MockMvcResultMatchers.jsonPath("$[1].name", Matchers.equalTo("DummyName1")));
 	}
+	
+	@Test
+	public void testPostStudents() {
+		Student student= new Student("DummyName",44,4,2014);
+		controller.addStudent(student);
+		assertNotNull(controller.getStudents());
+	}
+
 	
 	private List<Student> getValue(){
 		List<Student> studentlist= new ArrayList<>();
