@@ -2,28 +2,25 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "result")
+public class ReportCard {
 	private String name;
 	private int rollNo;
 	private int standard;
-	private int admYear;
+	private int percentage;
 
-	public Student() {
-
+	
+	
+	public ReportCard() {
 	}
-
-	public Student(String name, int rollNo, int standard, int admYear) {
-		super();
+	public ReportCard(String name, int rollNo, int standard, int percentage) {
 		this.name = name;
 		this.rollNo = rollNo;
 		this.standard = standard;
-		this.admYear = admYear;
+		this.percentage = percentage;
 	}
-
-	@Column(name = "name", nullable = false)
+	@Column(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -31,10 +28,9 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rollNo")
+	@Column(name = "roll")
 	public int getRollNo() {
 		return rollNo;
 	}
@@ -52,13 +48,12 @@ public class Student {
 		this.standard = standard;
 	}
 
-	@Column(name = "admYear", nullable = false)
-	public int getAdmYear() {
-		return admYear;
+	@Column(name = "percentage")
+	public int getPercentage() {
+		return percentage;
 	}
 
-	public void setAdmYear(int admYear) {
-		this.admYear = admYear;
+	public void setPercentage(int percentage) {
+		this.percentage = percentage;
 	}
-
 }

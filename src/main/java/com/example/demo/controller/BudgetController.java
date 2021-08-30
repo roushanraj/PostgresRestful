@@ -9,24 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Student;
-import com.example.demo.service.StudentOperation;
+import com.example.demo.model.Budget;
+import com.example.demo.service.BudgetOperation;
 
 @RestController
-public class StudentController {
-
+public class BudgetController {
 	@Autowired
-	StudentOperation operation;
+	BudgetOperation operation;
 	
 	@CrossOrigin
-	@RequestMapping("/students")
-	public List<Student> getStudents(){
-		return operation.getStudents();
+	@RequestMapping("/budget")
+	public List<Budget> getBudget(){
+		return operation.getBudget();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value="/students")
-	public void addStudent(@RequestBody Student student) {
-		operation.setStudent(student);
+	@RequestMapping(method = RequestMethod.POST, value="/budget")
+	public void addStudent(@RequestBody Budget budget) {
+		operation.setBudget(budget);
 	}
-	
 }
